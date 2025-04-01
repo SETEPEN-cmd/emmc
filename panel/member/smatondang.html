@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List dengan Search & Animasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            position: relative;
+            padding: 10px;
+        }
+        .search-box {
+            width: 300px;
+            height: 30px;
+            font-size: 14px;
+            padding: 5px;
+        }
+        .list-container {
+            position: relative;
+            margin-top: 10px;
+            width: 1350px;
+        }
+        .list-item {
+            width: 1350px;
+            background: #f2f2f2;
+            margin: 5px 0;
+            padding: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            height: 30px;
+        }
+        .list-item.expanded {
+            height: 250px;
+        }
+        .description {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .list-item.expanded .description {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Cari buah...">
+    </div>
+    <div class="list-container">
+        <div class="list-item" onclick="toggleDescription(this)">
+            <strong>Apel</strong>
+            <div class="description">Buah warna merah</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            🍌 Pisang
+            <div class="description">Buah panjang kuning</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            🍊 Jeruk
+            <div class="description">Buah berwarna oranye</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            🍎 Apel
+            <div class="description">Buah warna merah</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            🍎 Apel
+            <div class="description">Buah warna merah</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            🍎 Apel
+            <div class="description">Buah warna merah</div>
+        </div>
+    </div>
+    <script>
+        function toggleDescription(element) {
+            element.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
