@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="/resource/smtdw.png">
+    <title>EMPIRE Server | General</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .c1 {
+            background: #222;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 183, 255, 0.651);
+            display: inline-block;
+            text-align: center;
+            border: flex;
+        }
+        .c2 {
+            background: #222;
+            padding: 10px 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 183, 255);
+            display: inline-block;
+            text-align: left;
+        }.c3 {
+            background: #222;
+            padding: 10px 360px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 183, 255);
+            display: inline-block;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0ff;
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav h1 {
+            color: rgb(0, 255, 76);
+        }
+
+        nav a {
+            color: #0ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: auto;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        .button {
+            background-color:rgb(58, 204, 0);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 33px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: rgb(255, 255, 255);
+            font-weight: bold;   
+        }
+        .search-container {
+            position: relative;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .search-box {
+            width: 300px;
+            height: 30px;
+            font-size: 14px;
+            padding: 5px;
+        }
+        .list-container {
+            position: relative;
+            margin-top: 10px;
+            width: 1350px;
+        }
+        .list-item {
+            width: 1350px;
+            background: rgb(53, 53, 53);
+            margin: 5px 0;
+            padding: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out, background 0.2s ease-in-out;
+            height: 25px;
+            border: 1px solid rgb(0, 255, 234);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        .list-item:hover {
+            background: rgba(255, 255, 255, 0.267);
+        }
+        .list-item.expanded {
+            height: 120px;
+            align-items: flex-start;
+        }
+        .description {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: left;
+            width: 100%;
+        }
+        .list-item.expanded .description {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>EMPIRE Server</h1>
+        <a href="">General</a>
+        <a href="/panel/member">Member</a>
+        <a href="/panel/contact">Contact</a>
+        <a href="/panel/anothers">Anothers</a>
+    </nav>
+    <h1>-------------------------------</h1>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Cari buah..." onkeyup="searchList()">
+    </div>
+    <div class="list-container" id="listContainer">
+        <div class="list-item" onclick="toggleDescription(this)">
+            <strong>📚 Glowing</strong>
+            <div class="description">Type: Simple<br>Max Level: I<br>Can Apply: Helmet<br>Description: Memberikan Effect Night Vision Permanen</div>
+        </div>
+        <div class="list-item" onclick="toggleDescription(this)">
+            <strong>📚 Molten</strong>
+            <div class="description">Type: Unique<br>Max Level: V<br>Can Apply: Chestplate<br>Description: Memberikan Kesempatan untuk Membakar Penyerang</div>
+        </div>
+    </div>
+    <script>
+        function toggleDescription(element) {
+            element.classList.toggle('expanded');
+        }
+        
+        function searchList() {
+            let input = document.querySelector('.search-box').value.toLowerCase();
+            let items = document.querySelectorAll('.list-item');
+            
+            items.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
